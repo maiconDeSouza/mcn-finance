@@ -5,12 +5,15 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "dev:server": "json-server ./server/mcn-finance.json -w -d 500",
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
   "dependencies": {
     "axios": "^1.6.3",
+    "flowbite": "^2.2.1",
+    "flowbite-react": "^0.7.2",
     "localforage": "^1.10.0",
     "lucide-react": "^0.303.0",
     "match-sorter": "^6.3.1",
@@ -35,7 +38,6 @@
     "json-server": "^0.17.4",
     "postcss": "^8.4.32",
     "prettier": "^3.1.1",
-    "prettier-plugin-tailwindcss": "^0.5.10",
     "tailwindcss": "^3.4.0",
     "typescript": "^5.2.2",
     "vite": "^5.0.8"

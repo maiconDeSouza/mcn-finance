@@ -3,9 +3,9 @@
 @tailwind utilities;
 
 body {
-    @apply bg-sky-900 
+    @apply bg-body-mcn text-title-mcn
 }
 
 body, input, textarea, button {
-    @apply text-base font-normal
+    @apply text-base font-normal 
 }
