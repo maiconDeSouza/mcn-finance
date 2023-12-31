@@ -1,3 +1,5 @@
+mcn-finance.json
+
 # Logs
 logs
 *.log
@@ -22,4 +24,3 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
-mcn-finance.json
