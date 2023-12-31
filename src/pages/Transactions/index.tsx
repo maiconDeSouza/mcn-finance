@@ -4,7 +4,7 @@ import { Summary } from '../../components/Summary'
 
 export function Transactions() {
   return (
-    <section className="w-screen min-h-pages-mcn">
+    <section className="w-full min-h-pages-mcn">
       <Summary />
       <Search />
       <ListTransactions />

@@ -1,8 +1,11 @@
-import { RouterProvider } from "react-router-dom";
-import { router } from "./router";
+import { RouterProvider } from 'react-router-dom'
+import { router } from './router'
+import { TransactionProvider } from './contexts/TransactionsContext'
 
 export function App() {
   return (
-    <RouterProvider router={router}></RouterProvider>
+    <TransactionProvider>
+      <RouterProvider router={router}></RouterProvider>
+    </TransactionProvider>
   )
 }
