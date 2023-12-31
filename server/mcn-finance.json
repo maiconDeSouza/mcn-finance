@@ -1,4 +1,41 @@
 {
-  "months": [],
-  "categories": []
+  "months": [
+    {
+      "id": "72b18854-b9d2-41ab-be3a-3c800c74e158",
+      "name": "dezembro_2023",
+      "transactions": [
+        {
+          "id": "8941a68a-a607-4179-90c7-b9d255062605",
+          "name": "Valor atual na Conta",
+          "description": "O que tenho hoje dia 31-12-23 na conta, preciso contar meu dinheiro em especie.",
+          "category": "Saldo em Conta",
+          "operation": "income",
+          "value": 6481.93,
+          "date": "31/12/2023"
+        }
+      ]
+    }
+  ],
+  "categories": [
+    {
+      "id": "3432b413-9923-416f-9508-b799ea032bca",
+      "name": "Trabalho"
+    },
+    {
+      "id": "1371bbe0-5026-4ff1-a280-6ef91c90c17d",
+      "name": "Saldo em Conta"
+    },
+    {
+      "id": "1b3f8f2a-8436-4bc1-ad34-d2cd9c14b213",
+      "name": "Lazer"
+    },
+    {
+      "id": "552dfdbc-631f-40eb-9f77-9c03f1d2e49e",
+      "name": "Comida"
+    },
+    {
+      "id": "b70814f2-4a85-44de-9a12-f9408c17d097",
+      "name": "Marketing Digital"
+    }
+  ]
 }

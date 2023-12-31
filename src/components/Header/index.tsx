@@ -124,7 +124,7 @@ export function Header() {
                   <option value="expense">Saída</option>
                 </select>
                 <input
-                  type="number"
+                  type="text"
                   placeholder="Valor"
                   className="w-full h-10 p-4 border border-border-mcn rounded-md placeholder:text-label-mcn bg-input-mcn"
                   {...register('value', {
