@@ -1,8 +1,10 @@
 import { ArrowBigDownDash, ArrowBigUpDash, DollarSign } from 'lucide-react'
-const value = 15000
+import { useSummary } from '../../hooks/useSummary'
+
 export function Summary() {
-  const total =
-    value >= 0
+  const { total, totalFormat, plusFormat, lessFormat } = useSummary()
+  const styleTotal =
+    total >= 0
       ? 'w-[22rem] h-[8.5625rem] p-4 flex flex-col justify-between rounded-md bg-green-500 text-white shadow shadow-black'
       : 'w-[22rem] h-[8.5625rem] p-4 flex flex-col justify-between rounded-md bg-red-500 text-white shadow shadow-black'
 
@@ -13,21 +15,21 @@ export function Summary() {
           <span className="font-bold">Entradas</span>
           <ArrowBigUpDash size={32} color="#22c55e" />
         </div>
-        <span className="font-bold text-3xl">R$ 14.590,00</span>
+        <span className="font-bold text-3xl">{plusFormat}</span>
       </article>
       <article className="w-[22rem] h-[8.5625rem] p-4 flex flex-col justify-between rounded-md bg-modal-mcn shadow shadow-black">
         <div className="flex justify-between items-center">
           <span className="font-bold">Saídas</span>
           <ArrowBigDownDash size={32} color="#ef4444" />
         </div>
-        <span className="font-bold text-3xl">R$ 1.021,00</span>
+        <span className="font-bold text-3xl">{lessFormat}</span>
       </article>
-      <article className={total}>
+      <article className={styleTotal}>
         <div className="flex justify-between items-center">
           <span className="font-bold">Total</span>
           <DollarSign size={32} color="#fff" />
         </div>
-        <span className="font-bold text-3xl">R$ 13.569,00</span>
+        <span className="font-bold text-3xl">{totalFormat}</span>
       </article>
     </section>
   )

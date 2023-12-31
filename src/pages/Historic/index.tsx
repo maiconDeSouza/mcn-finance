@@ -1,7 +1,11 @@
+import { useContext } from 'react'
 import { ListTransactions } from '../../components/ListTransactions'
 import { Summary } from '../../components/Summary'
+import { TransactionContext } from '../../contexts/TransactionsContext'
 
 export function Historic() {
+  const { months, month, onSetMonth } = useContext(TransactionContext)
+  const selected = months.some((monthTurn) => monthTurn.name === month.name)
   return (
     <section className="max-w-full">
       <Summary />
@@ -11,12 +15,18 @@ export function Historic() {
           id="months"
           title="Selecione o Mẽs"
           className="w-1/2 h-10 border border-border-mcn rounded-md placeholder:text-label-mcn bg-input-mcn"
+          onChange={(e) => onSetMonth(e.target.value)}
         >
-          <option value="dezembro_2023">dezembro_2023</option>
-          <option value="janeiro_2024">janeiro_2024</option>
+          {months.map((month) => {
+            return (
+              <option key={month.id} value={month.name} selected={selected}>
+                {month.name}
+              </option>
+            )
+          })}
         </select>
       </form>
-      <ListTransactions />
+      <ListTransactions del={false} />
     </section>
   )
 }

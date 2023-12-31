@@ -21,20 +21,31 @@ type CreateNewTransactionFormSchemaProps = z.infer<
 >
 
 export function Header() {
-  const { months, nameCurrentMonthAndYearName } = useContext(TransactionContext)
+  const { month, categories, serverCreateTransaction } =
+    useContext(TransactionContext)
   const { register, handleSubmit, reset } =
     useForm<CreateNewTransactionFormSchemaProps>({
       resolver: zodResolver(createNewTransactionFormSchema),
     })
+  const { setHome } = useContext(TransactionContext)
 
   function onSubmitForm(data: CreateNewTransactionFormSchemaProps) {
-    console.log(data)
+    const { name, category, description, operation, value } = data
+    serverCreateTransaction({
+      name,
+      description,
+      category,
+      operation,
+      value,
+    })
     reset()
   }
-  const month = months.find(
-    (month) => month.name === nameCurrentMonthAndYearName,
-  )
-  const nameMonth = month ? month.name : 'carregando...'
+
+  function handleHome() {
+    setHome(true)
+  }
+
+  const nameMonth = month.name || 'carregando...'
   return (
     <header className="max-w-screen h-[12.25rem] bg-header-mcn p-6">
       <div className="w-full max-w-[1120px] my-0 mx-auto px-6 py-0 flex justify-between items-center">
@@ -47,6 +58,7 @@ export function Header() {
                 <Link
                   to="/"
                   className="flex justify-center items-center w-28 py-3 rounded-md bg-transaction-mcn hover:bg-[#02151c] hover:transition-all hover:duration-300 active:scale-105"
+                  onClick={handleHome}
                 >
                   Transações
                 </Link>
@@ -124,9 +136,13 @@ export function Header() {
                   className="w-full h-10 border border-border-mcn rounded-md placeholder:text-label-mcn bg-input-mcn"
                   {...register('category', { required: true })}
                 >
-                  <option value="freelance">Freelance</option>
-                  <option value="trabalho">Trabalho</option>
-                  <option value="lazer">Lazer</option>
+                  {categories.map((category) => {
+                    return (
+                      <option key={category.id} value={category.name}>
+                        {category.name}
+                      </option>
+                    )
+                  })}
                 </select>
                 <button
                   type="submit"

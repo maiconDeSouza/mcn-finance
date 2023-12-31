@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "dev:server": "json-server ./server/mcn-finance.json -w -d 500",
+    "mcn": "vite && json-server ./server/mcn-finance.json -w",
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
